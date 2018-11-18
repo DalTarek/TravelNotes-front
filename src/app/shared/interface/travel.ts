@@ -8,6 +8,5 @@ export interface Travel {
   numberPerson?: number;
   hotel?: string;
   price?: number;
-  view?: string;
   description?: string;
 }

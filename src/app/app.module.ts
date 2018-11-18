@@ -14,7 +14,7 @@ import {
 import { TravelComponent } from './travel/travel.component';
 import { TravelsComponent } from './travels/travels.component';
 
-import { AppRoutingModule } from './app-routing.module';
+import { APP_ROUTES } from './app-routing.module';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    APP_ROUTES,
     HttpClientModule,
     MatToolbarModule,
     MatCardModule,
@@ -35,6 +35,6 @@ import { AppRoutingModule } from './app-routing.module';
     MatInputModule
   ],
   providers: [],
-  bootstrap: [],
+  bootstrap: [TravelComponent],
 })
 export class AppModule { }
