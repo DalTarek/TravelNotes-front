@@ -46,6 +46,6 @@ import {HomeComponent} from './home/home.component';
     APP_ROUTES
   ],
   providers: [],
-  bootstrap: [ AppComponent ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
