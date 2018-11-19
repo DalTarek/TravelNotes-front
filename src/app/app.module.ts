@@ -14,13 +14,23 @@ import {
 import { TravelComponent } from './travel/travel.component';
 import { TravelsComponent } from './travels/travels.component';
 
-import { APP_ROUTES } from './app-routing.module';
+import { APP_ROUTES } from './app.routes';
+import {AppComponent} from './app.component';
+import {CardComponent} from './shared/card/card.component';
+import {DialogComponent} from './shared/dialog/dialog.component';
+import {HomeComponent} from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    TravelComponent
+    AppComponent,
+    HomeComponent,
+    TravelComponent,
+    TravelsComponent,
+    CardComponent,
+    DialogComponent
   ],
+  entryComponents: [ DialogComponent ],
   imports: [
     BrowserModule,
     APP_ROUTES,
@@ -32,9 +42,10 @@ import { APP_ROUTES } from './app-routing.module';
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    APP_ROUTES
   ],
   providers: [],
-  bootstrap: [TravelComponent],
+  bootstrap: [ AppComponent ],
 })
 export class AppModule { }

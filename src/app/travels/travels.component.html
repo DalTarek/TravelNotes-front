@@ -1,6 +1,6 @@
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <nwt-card [person]="person" (deletePerson)="delete($event)" *ngFor="let person of people"></nwt-card>
+    <nwt-card [travel]="travel" (deletePerson)="delete($event)" *ngFor="let person of people"></nwt-card>
   </section>
 
   <section *ngSwitchCase="'list'">

@@ -1,9 +1,9 @@
 <mat-card class="mat-whiteframe-2dp">
   <mat-card-title-group>
-    <img mat-card-md-image src="{{ person.photo }}">
+    <img mat-card-md-image src="{{ travel.photo }}">
     <mat-card-title>
-      <a [routerLink]="['/person', person.id]">
-        <span>{{ person.firstname }} {{ person.lastname }}</span>
+      <a [routerLink]="['/travel', travel.id]">
+        <span>{{ travel.departure }} {{ travel.arrival }}</span>
       </a>
     </mat-card-title>
     <mat-card-subtitle>{{ person.entity | na }}</mat-card-subtitle>
