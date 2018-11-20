@@ -51,10 +51,19 @@ export class TravelComponent implements OnInit {
     ),
     this._route.params.pipe(
       filter(params => !params['_id']),
-      flatMap(_ => this._travelsService.fetchOne("5bf33a585f926b144eaeaa57")),
+      flatMap(_ => this._travelsService.fetchRandom()),
       tap(_ => this._isTravel = false)
       )
     )
     .subscribe((travel: any) => this._travel = travel);
+  }
+
+  /**
+  * Returns random people
+  */
+  random() {
+    this._travelsService
+    .fetchRandom()
+    .subscribe((travel: Travel) => this._travel = travel);
   }
 }

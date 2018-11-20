@@ -10,6 +10,7 @@ export const environment = {
     port: '4443',
     endpoints: {
       allTravels: '/api/travels',
+      randomTravels: '/api/travel/random',
       oneTravels: '/api/travel/:id'
     }
   }

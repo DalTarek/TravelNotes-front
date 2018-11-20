@@ -57,6 +57,18 @@ export class TravelsService {
   }
 
   /**
+   * Function to return one random person from people list
+   */
+  fetchRandom(): Observable<Travel> {
+    return this._http.get<Travel>(this._backendURL.randomTravels)
+      .pipe(
+        filter(_ => !!_),
+        defaultIfEmpty(this._defaultTravel)
+      );
+  }
+
+
+  /**
    * Function to return one travel for current id
    */
   fetchOne(id: string): Observable<Travel> {
