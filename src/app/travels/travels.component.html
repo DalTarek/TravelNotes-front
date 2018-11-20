@@ -1,0 +1,27 @@
+<p>
+  travels works!
+</p>
+<section [ngSwitch]="view">
+  <section *ngSwitchCase="'card'">
+    <app-card [travel]="travel" (deleteTravel)="delete($event)" *ngFor="let travel of travels"></app-card>
+  </section>
+
+  <section *ngSwitchCase="'list'">
+    <mat-list>
+      <mat-list-item (click)="navigate(travel)" *ngFor="let travel of travels" class="mat-whiteframe-2dp mat-card">
+        <img mat-list-avatar src="{{ travel.photo }}">
+        <h3 matLine> {{travel.country}} {{travel.city}} <span appBadge [travel]="travel"></span> </h3>
+      </mat-list-item>
+    </mat-list>
+  </section>
+</section>
+
+<section class="buttons-fab" *ngIf="dialogStatus === 'inactive'">
+  <button (click)="showDialog()" mat-fab color="accent" class="button-add">
+    <i class="material-icons">add</i>
+  </button>
+  <button (click)="switchView()" mat-fab color="warn">
+    <i class="material-icons" *ngIf="view === 'card'" >list</i>
+    <i class="material-icons" *ngIf="view === 'list'" >view_stream</i>
+  </button>
+</section>
