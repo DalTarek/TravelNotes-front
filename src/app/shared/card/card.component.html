@@ -1,6 +1,11 @@
 <mat-card class="mat-whiteframe-2dp">
   <mat-card-title-group>
     <img mat-card-md-image src="{{ travel.photo }}">
+    <mat-card-title>
+      <a [routerLink]="['/travel', travel._id]">
+        <span>{{ travel.country }} {{ travel.city }}</span>
+      </a>
+    </mat-card-title>
   </mat-card-title-group>
   <mat-card-content>
     <div>
@@ -8,12 +13,6 @@
     </div>
     <div>
       Arrival&nbsp;:&nbsp;<span>{{ travel.arrival | date:'dd/MM/yyyy' }}</span>
-    </div>
-    <div>
-      Country&nbsp;:&nbsp;<a>{{ travel.country }}</a>
-    </div>
-    <div>
-      City&nbsp;:&nbsp;<a>{{ travel.city }}</a>
     </div>
     <div>
       Number of people&nbsp;:&nbsp;<a>{{ travel.numberPerson }}</a>

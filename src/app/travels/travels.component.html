@@ -1,6 +1,3 @@
-<p>
-  travels works!
-</p>
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
     <app-card [travel]="travel" (deleteTravel)="delete($event)" *ngFor="let travel of travels"></app-card>
@@ -10,7 +7,7 @@
     <mat-list>
       <mat-list-item (click)="navigate(travel)" *ngFor="let travel of travels" class="mat-whiteframe-2dp mat-card">
         <img mat-list-avatar src="{{ travel.photo }}">
-        <h3 matLine> {{travel.country}} {{travel.city}} <span appBadge [travel]="travel"></span> </h3>
+        <h3 matLine> {{travel.country}} {{travel.city}} </h3>
       </mat-list-item>
     </mat-list>
   </section>

@@ -42,15 +42,14 @@ export class TravelComponent implements OnInit {
    * OnInit implementation
    */
   ngOnInit() {
-  console.log('Okkk');
     merge(
     this._route.params.pipe(
-      filter(params => !!params['_id']),
+      filter(params => !!params['id']),
       flatMap(params => this._travelsService.fetchOne(params['id'])),
       tap(_ => this._isTravel = true)
     ),
     this._route.params.pipe(
-      filter(params => !params['_id']),
+      filter(params => !params['id']),
       flatMap(_ => this._travelsService.fetchRandom()),
       tap(_ => this._isTravel = false)
       )

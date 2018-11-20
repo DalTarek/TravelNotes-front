@@ -1,12 +1,12 @@
 mat-toolbar.extend-toolbar {
-  background-color: #0168AB;
-  background-image: url('/assets/images/bg_right.png');
+  background-color: #FFE4C4;
   background-repeat: no-repeat;
   background-position: right;
   top: 0px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   width: 100%;
   z-index: 1;
+  position:relative;
   color: white;
   margin-bottom: 10px;
 }
