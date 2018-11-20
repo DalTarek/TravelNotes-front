@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule,
@@ -11,15 +11,19 @@ import {
   MatListModule,
   MatToolbarModule
 } from '@angular/material';
-import { TravelComponent } from './travel/travel.component';
-import { TravelsComponent } from './travels/travels.component';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
-import {AppComponent} from './app.component';
-import {CardComponent} from './shared/card/card.component';
-import {DialogComponent} from './shared/dialog/dialog.component';
-import {HomeComponent} from './home/home.component';
-
+import { HomeComponent } from './home/home.component';
+import { TravelsComponent } from './travels/travels.component';
+import { TravelComponent } from './travel/travel.component';
+import { CardComponent } from './shared/card/card.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
+import { FormComponent } from './shared/form/form.component';
+import { UpdateComponent } from './update/update.component';
+import { NaPipe } from './shared/pipes/na.pipe';
+import { BadgeDirective } from './shared/directives/badge.directive';
 
 @NgModule({
   declarations: [
@@ -28,13 +32,18 @@ import {HomeComponent} from './home/home.component';
     TravelComponent,
     TravelsComponent,
     CardComponent,
-    DialogComponent
+    DialogComponent,
+    FormComponent,
+    UpdateComponent,
+    NaPipe,
+    BadgeDirective
   ],
   entryComponents: [ DialogComponent ],
   imports: [
     BrowserModule,
-    APP_ROUTES,
+    BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
@@ -48,4 +57,5 @@ import {HomeComponent} from './home/home.component';
   providers: [],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}

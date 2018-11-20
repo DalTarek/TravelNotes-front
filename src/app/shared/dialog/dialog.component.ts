@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Travel } from '../interface/travel';
+import {Travel} from '../interfaces/travel';
 
 @Component({
   selector: 'nwt-add-dialog',
@@ -16,7 +16,7 @@ export class DialogComponent implements OnInit {
   }
 
   /**
-   * Returns person passed in dialog open
+   * Returns travel passed in dialog open
    */
   get travel(): Travel {
     return this._travel;
@@ -36,7 +36,7 @@ export class DialogComponent implements OnInit {
   }
 
   /**
-   * Function to close the modal and send person to parent
+   * Function to close the modal and send travel to parent
    */
   onSave(travel: Travel) {
     this._dialogRef.close(travel);

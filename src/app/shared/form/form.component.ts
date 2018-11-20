@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {Travel} from '../interface/travel';
+import {Travel} from '../interfaces/travel';
 
 @Component({
   selector: 'nwt-form',
@@ -82,7 +82,26 @@ export class FormComponent implements OnInit, OnChanges {
   /**
    * Function to handle component update
    */
-  ngOnChanges(record) {}
+  ngOnChanges(record) {
+    if (record.model && record.model.currentValue) {
+      this._model = record.model.currentValue;
+      this._isUpdateMode = true;
+      this._form.patchValue(this._model);
+    } else {
+      this._model = {
+        departure: '',
+        arrival: '',
+        country: '',
+        city: '',
+        numberPerson: '',
+        hotel: '',
+        price: '',
+        description: '',
+        photo: 'https://randomuser.me/api/portraits/lego/6.jpg',
+      };
+      this._isUpdateMode = false;
+    }
+  }
 
   /**
    * Function to emit event to cancel process
@@ -92,7 +111,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Function to emit event to submit form and person
+   * Function to emit event to submit form and travel
    */
   submit(travel: Travel) {
     this._submit$.emit(travel);
@@ -104,25 +123,31 @@ export class FormComponent implements OnInit, OnChanges {
   private _buildForm(): FormGroup {
     return new FormGroup({
       id: new FormControl('0'),
-      firstname: new FormControl('', Validators.compose([
+      departure: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),
-      lastname: new FormControl('', Validators.compose([
+      arrival: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),
-      email: new FormControl('', Validators.compose([
+      country: new FormControl('', Validators.compose([
         Validators.required
       ])),
       photo: new FormControl('https://randomuser.me/api/portraits/lego/6.jpg'),
-      address: new FormGroup({
-        street: new FormControl(''),
-        city: new FormControl(''),
-        postalCode: new FormControl('')
-      }),
-      phone: new FormControl('', Validators.compose([
-        Validators.required, Validators.pattern('\\d{10}')
+      city: new FormControl('', Validators.compose([
+        Validators.required
       ])),
-      isManager: new FormControl(false)
+      numberPerson: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      hotel: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      price: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      description: new FormControl('', Validators.compose([
+        Validators.required
+      ]))
     });
   }
 }
