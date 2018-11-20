@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Travel} from '../interfaces/travel';
+import { of } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -15,7 +18,7 @@ export class CardComponent implements OnInit {
   /**
    * Component constructor
    */
-  constructor() {
+  constructor(private _router: Router) {
     this._travel = {} as Travel;
     this._delete$ = new EventEmitter<Travel>();
   }

@@ -5,8 +5,8 @@ export const environment = {
     host: '0.0.0.0',
     port: '4443',
     endpoints: {
-      allPeople: '/api/travels',
-      onePeople: '/api/travels/:id'
+      allTravels: '/api/travels',
+      oneTravels: '/api/travel/:id'
     }
   }
 };

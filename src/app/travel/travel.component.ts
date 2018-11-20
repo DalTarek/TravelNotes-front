@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { filter, flatMap, tap } from 'rxjs/operators';
 import { TravelsService } from '../shared/services/travels.service';
+import { merge } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import {Travel} from '../shared/interfaces/travel';
+import { Travel } from '../shared/interfaces/travel';
 
 @Component({
   selector: 'app-travel',
@@ -41,11 +42,19 @@ export class TravelComponent implements OnInit {
    * OnInit implementation
    */
   ngOnInit() {
-      this._route.params.pipe(
-        filter(params => !!params['_id']),
-        flatMap(params => this._travelsService.fetchOne(params['_id'])),
-        tap(_ => this._isTravel = true)
+  console.log('Okkk');
+    merge(
+    this._route.params.pipe(
+      filter(params => !!params['_id']),
+      flatMap(params => this._travelsService.fetchOne(params['id'])),
+      tap(_ => this._isTravel = true)
+    ),
+    this._route.params.pipe(
+      filter(params => !params['_id']),
+      flatMap(_ => this._travelsService.fetchOne("5bf33a585f926b144eaeaa57")),
+      tap(_ => this._isTravel = false)
       )
-      .subscribe((travel: any) => this._travel = travel);
+    )
+    .subscribe((travel: any) => this._travel = travel);
   }
 }
