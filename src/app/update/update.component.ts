@@ -28,8 +28,8 @@ export class UpdateComponent implements OnInit {
   ngOnInit() {
     this._route.params
       .pipe(
-        map((params: any) => params._id),
-        flatMap((_id: string) => this._travelsService.fetchOne(_id))
+        map((params: any) => params['id']),
+        flatMap((id: string) => this._travelsService.fetchOne(id))
       )
       .subscribe((travel: Travel) => {
         this._travelsDialog = this._dialog.open(DialogComponent, {

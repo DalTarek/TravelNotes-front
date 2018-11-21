@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
@@ -12,7 +13,6 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { HttpClientModule} from '@angular/common/http';
-
 import { APP_ROUTES } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -38,8 +38,10 @@ import { BadgeDirective } from './shared/directives/badge.directive';
     NaPipe,
     BadgeDirective
   ],
+  entryComponents: [ DialogComponent ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatCardModule,

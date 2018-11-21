@@ -28,7 +28,7 @@ export class TravelsComponent implements OnInit {
   constructor(private _router: Router, private _travelsService: TravelsService, private _dialog: MatDialog) {
     this._travels = [];
     this._dialogStatus = 'inactive';
-    this._view = 'card';
+    this._view = 'list';
   }
 
   /**

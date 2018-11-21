@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {Travel} from '../interfaces/travel';
 
 @Component({
-  selector: 'nwt-form',
+  selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: [ './form.component.css' ]
 })
@@ -89,13 +89,13 @@ export class FormComponent implements OnInit, OnChanges {
       this._form.patchValue(this._model);
     } else {
       this._model = {
-        departure: '',
-        arrival: '',
+        departure: 0,
+        arrival: 0,
         country: '',
         city: '',
-        numberPerson: '',
+        numberPerson: 5,
         hotel: '',
-        price: '',
+        price: 500,
         description: '',
         photo: 'https://randomuser.me/api/portraits/lego/6.jpg',
       };

@@ -16,14 +16,14 @@ export class TravelsService {
 
   constructor(private _http: HttpClient) {
     this._defaultTravel = {
-      departure: '15/10/2000',
-      arrival: '15/11/2000',
+      departure: 0,
+      arrival: 0,
       country: 'France',
       city: 'Paris',
-      numberPerson: '5',
+      numberPerson: 5,
       photo: 'https://randomuser.me/api/portraits/lego/6.jpg',
       hotel: 'Abc',
-      price: '500',
+      price: 500,
       description: 'Very good'
     };
     this._backendURL = {};

@@ -42,3 +42,4 @@ export class DialogComponent implements OnInit {
     this._dialogRef.close(travel);
   }
 }
+

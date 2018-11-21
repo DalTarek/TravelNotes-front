@@ -1,12 +1,12 @@
 export interface Travel {
   _id?: string;
   photo?: string;
-  departure?: string;
-  arrival?: string;
+  departure?: number;
+  arrival?: number;
   country?: string;
   city?: string;
-  numberPerson?: string;
+  numberPerson?: number;
   hotel?: string;
-  price?: string;
+  price?: number;
   description?: string;
 }
