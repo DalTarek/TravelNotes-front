@@ -1,5 +1,5 @@
 <h2 mat-dialog-title *ngIf="isUpdateMode">Update travel</h2>
-<h2 mat-dialog-title *ngIf="!isUpdateMode">Create new person</h2>
+<h2 mat-dialog-title *ngIf="!isUpdateMode">Create new travel</h2>
 
 <mat-dialog-content>
   <form novalidate [formGroup]="form">
@@ -9,82 +9,68 @@
       <span style="width:100%">{{model.id}}</span>
     </p>
 
-    <table class="full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="full-width" [class.mgb15]="form.get('firstname').dirty && form.get('firstname').invalid">
-            <input matInput placeholder="First name" formControlName="firstname" minlength="2" required name="firstname" />
-            <mat-error *ngIf="form.get('firstname').dirty && form.get('firstname').hasError('required')">
-              First name is <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="form.get('firstname').dirty && form.get('firstname').hasError('minlength')">
-              First name is <strong>2 chars min</strong>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Last Name" formControlName="lastname" minlength="2" required name="lastname" />
-            <mat-error *ngIf="form.get('lastname').dirty && form.get('lastname').hasError('required')">
-              Last name is <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="form.get('lastname').dirty && form.get('lastname').hasError('minlength')">
-              Last name is <strong>2 chars min</strong>
-            </mat-error>
-          </mat-form-field>
-        </td>
-        <td class="align-right">
-          <img width="112" src="{{ form.get('photo').value }}"/>
-          <input type="hidden" formControlName="photo" name="photo">
-        </td>
-      </tr>
-    </table>
-
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Email" formControlName="email" required name="email" />
-        <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-        <mat-error *ngIf="form.get('email').dirty && !form.get('email').hasError('required') && form.get('email').hasError('googleEmail')">
-          Invalid email <strong>(ex: name.firstname@gmail.com)</strong>
-        </mat-error>
-      </mat-form-field>
-    </p>
-
-    <p formGroupName="address">
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Address" formControlName="street" name="street"/>
-      </mat-form-field>
-    </p>
-
-    <table class="full-width" cellspacing="0" formGroupName="address">
-      <tr>
-        <td>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="City" formControlName="city" name="city"/>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Postal Code" formControlName="postalCode" name="postalCode"/>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-
-    <p>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Phone (ex: 0612345678)" formControlName="phone" required name="phone" />
-        <mat-error *ngIf="form.get('phone').dirty && form.get('phone').hasError('required')">
-          Phone is <strong>required</strong>
-        </mat-error>
-        <mat-error *ngIf="form.get('phone').dirty && form.get('phone').hasError('pattern')">
-          Phone number must be <strong>10 digits</strong>
+        <input matInput placeholder="Departure (ex: 15/12/2018)" formControlName="departure" required name="departure" />
+        <mat-error *ngIf="form.get('departure').dirty && form.get('departure').hasError('required')">
+          Departure is <strong>required</strong>
         </mat-error>
       </mat-form-field>
     </p>
 
     <p>
-      <mat-checkbox formControlName="isManager" name="isManager">Manager</mat-checkbox>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Arrival (ex: 28/12/2018)" formControlName="arrival" required name="arrival" />
+        <mat-error *ngIf="form.get('arrival').dirty && form.get('arrival').hasError('required')">
+          Arrival is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Country" formControlName="country" required name="country" />
+        <mat-error *ngIf="form.get('country').dirty && form.get('country').hasError('required')">
+          Country is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="City" formControlName="city" required name="city"/>
+        <mat-error *ngIf="form.get('city').dirty && form.get('city').hasError('required')">
+          City is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Number of people" formControlName="numberPerson" required name="numberPerson"/>
+        <mat-error *ngIf="form.get('numberPerson').dirty && form.get('numberPerson').hasError('required')">
+          Number of people is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Hotel" formControlName="hotel" required name="hotel" />
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Price" formControlName="price" required name="price" />
+        <mat-error *ngIf="form.get('price').dirty && form.get('price').hasError('required')">
+          Price is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Description" formControlName="description" required name="description" />
+      </mat-form-field>
     </p>
 
   </form>
