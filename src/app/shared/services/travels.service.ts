@@ -86,6 +86,8 @@ export class TravelsService {
    * Function to update one travel
    */
   update(travel: Travel): Observable<any> {
+    console.log('AAAAAAAAAAAAAAAA' + travel._id);
+    console.log(travel);
     return this._http.put<Travel>(this._backendURL.oneTravels.replace(':id', travel._id), travel, this._options());
   }
 

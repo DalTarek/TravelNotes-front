@@ -84,6 +84,8 @@ export class FormComponent implements OnInit, OnChanges {
    */
   ngOnChanges(record) {
     if (record.model && record.model.currentValue) {
+            console.log("BBBB " + this._model);
+            console.log("CCC " + record.model.currentValue);
       this._model = record.model.currentValue;
       this._isUpdateMode = true;
       this._form.patchValue(this._model);
@@ -122,12 +124,12 @@ export class FormComponent implements OnInit, OnChanges {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      id: new FormControl('0'),
+      _id: new FormControl('0'),
       departure: new FormControl('', Validators.compose([
-        Validators.required, Validators.minLength(2)
+        Validators.required, Validators.minLength(1)
       ])),
       arrival: new FormControl('', Validators.compose([
-        Validators.required, Validators.minLength(2)
+        Validators.required, Validators.minLength(1)
       ])),
       country: new FormControl('', Validators.compose([
         Validators.required

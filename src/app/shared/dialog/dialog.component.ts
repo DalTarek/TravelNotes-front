@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import {Travel} from '../interfaces/travel';
 
 @Component({
-  selector: 'nwt-add-dialog',
+  selector: 'app-add-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: [ './dialog.component.css' ]
 })
@@ -42,4 +42,3 @@ export class DialogComponent implements OnInit {
     this._dialogRef.close(travel);
   }
 }
-
