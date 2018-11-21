@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Travel} from '../interfaces/travel';
+import { of } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -39,7 +42,9 @@ export class CardComponent implements OnInit {
    * Returns private property _delete$
    */
   @Output('deleteTravel') get delete$(): EventEmitter<Travel> {
-    return this._delete$;
+      console.log("plop");
+
+      return this._delete$;
   }
 
   /**

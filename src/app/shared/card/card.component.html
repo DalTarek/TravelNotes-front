@@ -30,7 +30,7 @@
       <a mat-button title="Edit" [routerLink]="['/edit', travel._id]">
         <mat-icon svgIcon="icon-edit"></mat-icon>
       </a>
-      <button mat-button title="Delete" (click)="delete(travel)">
+      <button mat-button (click)="delete(travel)" title="Delete" >
         <mat-icon svgIcon="icon-delete"></mat-icon>
       </button>
     </div>

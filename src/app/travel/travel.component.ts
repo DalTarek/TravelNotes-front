@@ -65,4 +65,16 @@ export class TravelComponent implements OnInit {
     .fetchRandom()
     .subscribe((travel: Travel) => this._travel = travel);
   }
+
+
+/**
+* Function to delete one travel
+*/
+delete(travel: Travel) {
+console.log(travel);
+this._travelsService
+.delete(travel._id)
+.subscribe(_ => this._travel = this._travel);
+}
+
 }
