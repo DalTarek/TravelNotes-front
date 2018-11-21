@@ -93,7 +93,6 @@ export class TravelsService {
    * Function to delete one travel for current id
    */
   delete(id: string): Observable<string> {
-    console.log('AAAAAAAAAAAAAAAA' + id);
     return this._http.delete(this._backendURL.oneTravels.replace(':id', id))
       .pipe(
         map(_ => id)

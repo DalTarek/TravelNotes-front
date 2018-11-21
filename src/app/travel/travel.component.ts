@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { filter, flatMap, tap } from 'rxjs/operators';
 import { TravelsService } from '../shared/services/travels.service';
 import { merge } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Travel } from '../shared/interfaces/travel';
 
 @Component({
@@ -12,14 +12,14 @@ import { Travel } from '../shared/interfaces/travel';
 })
 export class TravelComponent implements OnInit {
   // private property to store travel value
-  private _travel: Travel;
+  private _travel: any;
   // private property to store flag to know if it's a travel
   private _isTravel: boolean;
 
   /**
    * Component constructor
    */
-  constructor(private _travelsService: TravelsService, private _route: ActivatedRoute) {
+  constructor(private _router: Router, private _travelsService: TravelsService, private _route: ActivatedRoute) {
     this._travel = {} as Travel;
     this._isTravel = false;
   }
@@ -67,14 +67,17 @@ export class TravelComponent implements OnInit {
   }
 
 
-/**
-* Function to delete one travel
-*/
-delete(travel: Travel) {
-console.log(travel);
-this._travelsService
-.delete(travel._id)
-.subscribe(_ => this._travel = this._travel);
-}
+  /**
+  * Function to delete one travel
+  */
+  delete(travel: Travel) {
+    console.log(travel);
+    this._travelsService
+    .delete(travel._id)
+    .subscribe(_ => {
+      this._travel = _;
+      this._router.navigate(['/travels']);
+     });
+  }
 
 }
