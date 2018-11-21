@@ -5,13 +5,13 @@
   <form novalidate [formGroup]="form">
 
     <p *ngIf="isUpdateMode">
-      <span style="width:100%">ID (disabled)</span><br/>
       <span style="width:100%">{{model._id}}</span>
     </p>
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Departure (ex: 15/12/2018)" formControlName="departure" required name="departure" />
+        <span style="width:100%">Departure (ex: 28/12/2018) : </span>
+        <input matInput formControlName="departure" required name="departure" />
         <mat-error *ngIf="form.get('departure').dirty && form.get('departure').hasError('required')">
           Departure is <strong>required</strong>
         </mat-error>
@@ -20,7 +20,8 @@
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Arrival (ex: 28/12/2018)" formControlName="arrival" required name="arrival" />
+        <span style="width:100%"> Arrival (ex: 28/12/2018) : </span>
+        <input matInput formControlName="arrival" required name="arrival" />
         <mat-error *ngIf="form.get('arrival').dirty && form.get('arrival').hasError('required')">
           Arrival is <strong>required</strong>
         </mat-error>
@@ -29,7 +30,8 @@
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Country" formControlName="country" required name="country" />
+        <span style="width:100%"> Country : </span>
+        <input matInput formControlName="country" required name="country" />
         <mat-error *ngIf="form.get('country').dirty && form.get('country').hasError('required')">
           Country is <strong>required</strong>
         </mat-error>
@@ -38,14 +40,16 @@
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="City" formControlName="city" required name="city"/>
+        <span style="width:100%"> City : </span>
+        <input matInput formControlName="city" required name="city"/>
         <mat-error *ngIf="form.get('city').dirty && form.get('city').hasError('required')">
           City is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Number of people" formControlName="numberPerson" required name="numberPerson"/>
+        <span style="width:100%"> Number of people : </span>
+        <input matInput formControlName="numberPerson" required name="numberPerson"/>
         <mat-error *ngIf="form.get('numberPerson').dirty && form.get('numberPerson').hasError('required')">
           Number of people is <strong>required</strong>
         </mat-error>
@@ -54,13 +58,15 @@
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Hotel" formControlName="hotel" required name="hotel" />
+        <span style="width:100%"> Hotel : </span>
+        <input matInput formControlName="hotel" required name="hotel" />
       </mat-form-field>
     </p>
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Price" formControlName="price" required name="price" />
+        <span style="width:100%"> Price : </span>
+        <input matInput formControlName="price" required name="price" />
         <mat-error *ngIf="form.get('price').dirty && form.get('price').hasError('required')">
           Price is <strong>required</strong>
         </mat-error>
@@ -69,7 +75,8 @@
 
     <p>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Description" formControlName="description" required name="description" />
+        <span style="width:100%"> Description : </span>
+        <input matInput formControlName="description" required name="description" />
       </mat-form-field>
     </p>
 
